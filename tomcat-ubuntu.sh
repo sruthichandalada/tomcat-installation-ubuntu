@@ -19,17 +19,17 @@ echo "            -> Done"
 
 # Configuring Tomcat server for manager, host-manager and tomcat users
 echo "*****Configuring Tomcat server for Manager, Host-manager and Credentials"
-sudo git clone -q https://github.com/artisantek/tomcat-ubuntu.git
-sudo cp tomcat-ubuntu/context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/manager/META-INF/context.xml
-sudo cp tomcat-ubuntu/context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/host-manager/META-INF/context.xml
-sudo cp tomcat-ubuntu/tomcat-users.xml /opt/tomcat/apache-tomcat-9.0.68/conf/tomcat-users.xml
+cd -
+sudo cp context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/manager/META-INF/context.xml
+sudo cp context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/host-manager/META-INF/context.xml
+sudo cp tomcat-users.xml /opt/tomcat/apache-tomcat-9.0.68/conf/tomcat-users.xml
 echo "            -> Done"
 
 # Configuring Tomcat as a Service
 echo "*****Configuring Tomcat as a Service"
 sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat 2>/dev/null
 sudo chown -R tomcat: /opt/tomcat/*
-sudo cp tomcat-ubuntu/tomcat.service /etc/systemd/system/tomcat.service
+sudo cp tomcat.service /etc/systemd/system/tomcat.service
 sudo rm -rf tomcat-ubuntu
 sudo systemctl daemon-reload 1>/dev/null
 sudo systemctl start tomcat 1>/dev/null
