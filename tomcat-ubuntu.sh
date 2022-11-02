@@ -19,7 +19,7 @@ echo "            -> Done"
 
 # Configuring Tomcat server for manager, host-manager and tomcat users
 echo "*****Configuring Tomcat server for Manager, Host-manager and Credentials"
-cd -
+cd - 1>/dev/null
 sudo cp context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/manager/META-INF/context.xml
 sudo cp context.xml /opt/tomcat/apache-tomcat-9.0.68/webapps/host-manager/META-INF/context.xml
 sudo cp tomcat-users.xml /opt/tomcat/apache-tomcat-9.0.68/conf/tomcat-users.xml
